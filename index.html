@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>Siddhartha Chilukuri - Teaching Portfolio</title>
+    <style>
+        /* CSS Variables for easy color changes */
+        :root {
+            --bg-color: #fcfcfc;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --accent-color: #3b82f6; /* Soft blue */
+            --accent-hover: #2563eb;
+            --sidebar-bg: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 300px;
+            height: 100vh;
+            position: fixed;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-img-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #e2e8f0;
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-align: center;
+            border: 2px dashed var(--border-color);
+        }
+
+        .sidebar h1 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar p.title {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Main Content Area */
+        .main-content {
+            margin-left: 300px; /* Offset for sidebar */
+            padding: 4rem;
+            max-width: 900px;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+
+        /* Student Feedback Blocks */
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        blockquote {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem 1.5rem;
+            font-style: italic;
+            color: var(--text-main);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 2rem;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 2rem;
+            }
+            
+            .nav-menu {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="profile-img-placeholder">[Portrait Photo]</div>
+        <h1>Siddhartha Chilukuri</h1>
+        <p class="title">Math, Statistics & Data Science Educator</p>
+        
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Teaching Experience</a></li>
+                <li><a href="#project">Featured Project</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <section id="hero">
+            <h2>Hello, I'm Siddhartha.</h2>
+            <p>I am a graduate student in Data Science with a strong foundation in mathematics and statistics. I have taught university statistics labs and helped redesign a full statistics lab sequence from JMP to Jamovi. I am interested in secondary math roles with a strong fit for statistics, quantitative reasoning, and emerging data science instruction.</p>
+            <div class="btn-group">
+                <a href="#resume" class="btn btn-outline">View Resume</a>
+                <a href="#portfolio" class="btn btn-outline">Explore Teaching Portfolio</a>
+                <a href="#contact" class="btn">Contact Me</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I developed my interest in teaching through mathematics and statistics. During my graduate studies, I worked closely with students in statistics labs and saw how much difference clear explanation, patient support, and real-world examples can make. That experience grew further when I helped redesign a nine-lab statistics sequence to make learning more accessible, applied, and concept-focused.</p>
+            <p>My academic background is in Data Science, but much of my work has centered on statistics, probability, modeling, and quantitative reasoning. I am especially interested in helping students connect mathematics to real data, real decisions, and real careers.</p>
+            
+            <h3>Teaching Philosophy</h3>
+            <p>I believe students learn mathematics best when they can connect ideas to meaning. My approach emphasizes concept understanding, interpretation, and real-world application rather than memorization alone. I aim to create a classroom environment where students feel supported, challenged, and encouraged to think critically.</p>
+            <p>I am especially interested in teaching mathematics through statistics and data. Topics such as probability, variation, inference, and modeling help students see that mathematics is not only about solving problems on paper, but also about understanding patterns, evidence, and decisions in the real world.</p>
+        </section>
+
+        <section id="experience">
+            <h2>Teaching Experience</h2>
+            <h3>Graduate Teaching Assistant</h3>
+            <p><em>Department of Mathematics and Statistics, Texas A&M University–Corpus Christi</em></p>
+            <ul>
+                <li>Taught Statistics for Life lab sessions and supported students through applied statistical concepts.</li>
+                <li>Helped students understand sampling, probability, distributions, confidence intervals, hypothesis testing, correlation, and linear regression.</li>
+                <li>Guided students through statistical software and interpretation of outputs.</li>
+                <li>Reinforced quantitative reasoning, data interpretation, and problem-solving during lab activities.</li>
+            </ul>
+        </section>
+
+        <section id="project">
+            <h2>Featured Project: Statistics Lab Modernization</h2>
+            <p>I helped redesign a full sequence of nine statistics labs by transitioning instruction from JMP to Jamovi. This project focused on making instruction more accessible, affordable, and concept-driven.</p>
+            
+            <h3>Topics Covered:</h3>
+            <ul>
+                <li>Sampling and data collection</li>
+                <li>Measures of center and variation</li>
+                <li>Probability and probability distributions</li>
+                <li>Confidence intervals</li>
+                <li>Hypothesis testing</li>
+                <li>Correlation and linear regression</li>
+            </ul>
+
+            <h3>What this project shows:</h3>
+            <ul>
+                <li>Curriculum design</li>
+                <li>Statistics instruction</li>
+                <li>Educational technology integration</li>
+                <li>Focus on student-centered learning</li>
+            </ul>
+            <div class="btn-group">
+                <a href="#" class="btn btn-outline">[Link to PDF: Sample Lab Manual]</a>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h2>Course and Content Areas</h2>
+            
+            <h3>Probability and Distributions</h3>
+            <p>Building student intuition around chance, variability, and expected outcomes.</p>
+
+            <h3>Statistical Inference</h3>
+            <p>Helping students understand confidence intervals, hypothesis testing, and evidence-based conclusions.</p>
+
+            <h3>Correlation and Regression</h3>
+            <p>Connecting relationships between variables to real-world questions using data.</p>
+
+            <h3>Quantitative Reasoning</h3>
+            <p>Supporting students in interpreting data, evaluating claims, and applying mathematics beyond the classroom.</p>
+
+            <h3>Data Science Readiness</h3>
+            <p>Bridging mathematics and statistics with emerging data science ideas and real-world datasets.</p>
+        </section>
+
+        <section id="feedback">
+            <h2>Student Feedback and Teaching Impact</h2>
+            <div class="feedback-grid">
+                <blockquote>"Explained difficult concepts clearly and patiently."</blockquote>
+                <blockquote>"Made statistics easier to understand with step-by-step guidance."</blockquote>
+                <blockquote>"Helped connect the lab material to real examples."</blockquote>
+            </div>
+        </section>
+
+        <section id="academic">
+            <h2>Academic Background</h2>
+            <h3>M.S. in Data Science</h3>
+            <p><em>Texas A&M University–Corpus Christi</em></p>
+            <p><strong>Relevant coursework:</strong> Principles of Data Science, Data Science and Predictive Analytics, Machine Learning in Data Science, Multivariate Statistics, Natural Systems Modeling, Statistical Methods and Data Analysis, Data Analytics, Data Science Computing, Bayesian Inference in Data Science.</p>
+        </section>
+
+        <section id="resume">
+            <h2>Resume</h2>
+            <p>View my full academic and teaching history below.</p>
+            <div class="btn-group">
+                <a href="#" class="btn btn-outline">Download Resume PDF</a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <ul>
+                <li><strong>Email:</strong> [your email]</li>
+                <li><strong>LinkedIn:</strong> [your LinkedIn]</li>
+                <li><strong>GitHub:</strong> [your GitHub]</li>
+                <li><strong>Location:</strong> Corpus Christi, Texas</li>
+            </ul>
+            <p style="margin-top: 2rem; font-weight: 500;"><em>I am always interested in opportunities to support mathematics, statistics, and data-centered learning.</em></p>
+        </section>
+
+    </main>
+
+</body>
+</html>
