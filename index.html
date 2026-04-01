@@ -46,6 +46,7 @@
             flex-direction: column;
             box-shadow: var(--shadow-sm);
             z-index: 100;
+            overflow-y: auto;
         }
 
         .profile-img-container {
@@ -88,7 +89,7 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
+            gap: 0.8rem;
         }
 
         .nav-menu a {
@@ -99,6 +100,7 @@
             border-radius: 6px;
             transition: all 0.2s ease;
             display: block;
+            font-size: 0.95rem;
         }
 
         .nav-menu a:hover, .nav-menu a.active {
@@ -116,8 +118,8 @@
 
         section {
             margin-bottom: 6rem;
-            opacity: 0; /* For scroll animation */
-            transform: translateY(20px); /* For scroll animation */
+            opacity: 0; 
+            transform: translateY(20px); 
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
@@ -157,7 +159,7 @@
             color: var(--text-muted);
         }
 
-        /* Cards for Experience and Content Areas */
+        /* Cards */
         .card {
             background-color: var(--surface-color);
             border-radius: 12px;
@@ -199,6 +201,101 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
+        }
+
+        /* Course Competencies Grid */
+        .course-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .course-card {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .course-card h4 {
+            color: var(--text-main);
+            font-size: 1.1rem;
+        }
+
+        .course-details {
+            font-size: 0.95rem;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            margin-top: 2rem;
+            padding-left: 2rem;
+            border-left: 3px solid var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.45rem;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--surface-color);
+            border: 3px solid var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .timeline-item.completed::before {
+            background: var(--accent-color);
+        }
+
+        .timeline-content {
+            background: var(--surface-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-date {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .timeline-proof {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .timeline-proof img {
+            max-height: 120px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Canvas Gallery */
+        .canvas-gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .canvas-gallery img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
         }
 
         /* Buttons */
@@ -297,7 +394,7 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
-            .grid-2 { grid-template-columns: 1fr; }
+            .grid-2, .course-card { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -314,8 +411,11 @@
             <ul class="nav-menu">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About & Philosophy</a></li>
+                <li><a href="#certification">Certification Timeline</a></li>
                 <li><a href="#stem-cte">STEM & CTE Initiatives</a></li>
+                <li><a href="#courses">Course Competencies</a></li>
                 <li><a href="#experience">Teaching Experience</a></li>
+                <li><a href="#projects">Projects & LMS</a></li>
                 <li><a href="#feedback">Student Feedback</a></li>
                 <li><a href="#resume">Resume</a></li>
             </ul>
@@ -328,7 +428,7 @@
             <h2>Hello, I'm Siddhartha.</h2>
             <p>I am a Mathematics and Statistics Educator with a strong foundation in supporting core secondary math instruction, quantitative reasoning, and data science. I have redesigned full university statistics lab sequences and am uniquely equipped to help school districts bridge the gap between foundational mathematics and advanced AP or CTE technology pathways.</p>
             <div class="btn-group">
-                <a href="./Siddhartha_Resume.docx" download class="btn">Download Resume</a>
+                <a href="./Siddhartha_Resume.pdf" target="_blank" class="btn">Download Resume</a>
                 <a href="#feedback" class="btn btn-outline">View Student Impact</a>
             </div>
         </section>
@@ -338,6 +438,67 @@
             <div class="card">
                 <p>During my graduate studies in Data Science, I discovered my true passion in the classroom. Working closely with students in university statistics labs, I saw firsthand how clear explanations, patient support, and real-world applications transform "math anxiety" into genuine comprehension.</p>
                 <p><strong>My Teaching Philosophy:</strong> I believe students learn mathematics best when they can connect ideas to meaning. My approach prioritizes concept understanding, visual interpretation, and real-world application over rote memorization alone. Whether teaching foundational Algebra or advanced Data Science, my goal is to create a classroom environment where students feel supported, challenged, and encouraged to think critically.</p>
+            </div>
+        </section>
+
+        <section id="certification">
+            <h2>Texas Educator Certification Progress</h2>
+            <p>I am actively progressing through my alternative certification pathway with Texas Teachers of Tomorrow. I am "hired-ready" with my content exams cleared.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item completed">
+                    <div class="timeline-content">
+                        <span class="timeline-date">February 2026</span>
+                        <strong>Enrolled in Program</strong>
+                        <p>Officially admitted to the Texas Teachers of Tomorrow alternative certification program.</p>
+                        <div class="timeline-proof">
+                            <a href="./TTT_Approval.png" target="_blank"><img src="./TTT_Approval.png" alt="Texas Teachers Admission Email"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item completed">
+                    <div class="timeline-content">
+                        <span class="timeline-date">March 2026</span>
+                        <strong>TX PACT Exam - Passed</strong>
+                        <p>Successfully passed the 735 TX PACT: Mathematics: Grades 7-12 content exam with a score of 280/300.</p>
+                        <div class="timeline-proof">
+                            <a href="./PACT_Test.png" target="_blank"><img src="./PACT_Test.png" alt="TX PACT Score Report"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Early May 2026 (Expected)</span>
+                        <strong>TExES Content Exam</strong>
+                        <p>Scheduled to complete the TExES 235 Mathematics 7-12 content exam.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">July 2026 (Expected)</span>
+                        <strong>Intern Certificate & Pre-Service Complete</strong>
+                        <p>Expected completion of all required courses, Field-Based Experiences (FBEs), and issuance of the Intern Certificate.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">October 2026 (Expected)</span>
+                        <strong>PPR Exam</strong>
+                        <p>Expected completion of the Pedagogy and Professional Responsibilities (PPR) Exam.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">July 2027 (Expected)</span>
+                        <strong>Fully Certified Educator</strong>
+                        <p>Expected issuance of the Standard Texas Educator Certificate.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -352,6 +513,77 @@
                 <div class="card">
                     <h3>Elements of Data Science</h3>
                     <p>Fluent in integrating programming (Python, R) and statistical software (Jamovi, Tableau) into coursework. I bridge theoretical math with applied data science, preparing students for emerging high-tech career pathways.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="courses">
+            <h2>Secondary Math Course Competencies</h2>
+            <p>A comprehensive breakdown of the core and advanced mathematics courses I am equipped to teach, aligned with Texas standards.</p>
+            
+            <div class="course-grid">
+                <div class="card course-card">
+                    <h4>AP Statistics</h4>
+                    <div class="course-details">
+                        <p><strong>Topics:</strong> Exploring data; Sampling and experimentation; Probability and simulation; Statistical inference.</p>
+                        <p><strong>Focus:</strong> Designing studies and using data to make formal conclusions.</p>
+                    </div>
+                </div>
+
+                <div class="card course-card">
+                    <h4>AP Precalculus</h4>
+                    <div class="course-details">
+                        <p><strong>Topics:</strong> Trigonometric functions and identities; Vectors; Parametric and Polar equations; Sequences and Series.</p>
+                        <p><strong>Focus:</strong> Advanced analytical methods and bridge to Calculus.</p>
+                    </div>
+                </div>
+
+                <div class="card course-card">
+                    <h4>Elements of Data Science</h4>
+                    <div class="course-details">
+                        <p><strong>Topics:</strong> Statistical modeling; Managing large datasets (Big Data); Predictive analysis; R Markdown software.</p>
+                        <p><strong>Focus:</strong> Programming-based data manipulation and predictive modeling.</p>
+                    </div>
+                </div>
+
+                <div class="card course-card">
+                    <h4>Algebra II</h4>
+                    <div class="course-details">
+                        <p><strong>Topics:</strong> Systems of equations; Complex numbers; Rational, Logarithmic, and Square root functions; Data analysis.</p>
+                        <p><strong>Focus:</strong> Advanced function modeling and preparing for higher-level STEM math.</p>
+                    </div>
+                </div>
+
+                <div class="card course-card">
+                    <h4>Algebra I</h4>
+                    <div class="course-details">
+                        <p><strong>Topics:</strong> Linear equations, inequalities, functions, polynomials, factoring.</p>
+                        <p><strong>Focus:</strong> Foundational algebraic reasoning and problem-solving.</p>
+                    </div>
+                </div>
+
+                <div class="card course-card">
+                    <h4>Geometry</h4>
+                    <div class="course-details">
+                        <p><strong>Topics:</strong> Logical reasoning and proofs; Coordinate and transformational geometry; Trigonometry; Properties of 2D & 3D figures.</p>
+                        <p><strong>Focus:</strong> Spatial reasoning, calculating area/volume, and geometric proofs.</p>
+                    </div>
+                </div>
+
+                <div class="card course-card">
+                    <h4>Mathematical Models</h4>
+                    <div class="course-details">
+                        <p><strong>Topics:</strong> Personal finance math; Social science applications; Math in art, music, and architecture.</p>
+                        <p><strong>Focus:</strong> Applying algebra and geometry to real-world, non-STEM scenarios.</p>
+                    </div>
+                </div>
+
+                <div class="card course-card">
+                    <h4>Advanced Quantitative Reasoning (AQR)</h4>
+                    <div class="course-details">
+                        <p><strong>Topics:</strong> Probability; Numerical reasoning; Statistical studies; Network and graph theory.</p>
+                        <p><strong>Focus:</strong> Critical thinking for business and social science pathways.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -380,6 +612,28 @@
                     <li>Evaluated and graded 300+ assignments per semester, providing rapid, individualized feedback to correct mathematical misconceptions.</li>
                     <li>Integrated MATLAB, Excel, and Python into coursework to build early data literacy for non-STEM majors.</li>
                 </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Instructional Projects & LMS Management</h2>
+            
+            <div class="card">
+                <h3>MATH 1442 Labs Curriculum Restructure</h3>
+                <p>As the Lead Curriculum Developer, I completely overhauled the university's "Statistics for Life" lab sequence. I transitioned the curriculum away from proprietary software to the open-source Jamovi platform, making it free and accessible to all students. I researched datasets, designed assignments, and wrote the instructional lab manuals from scratch.</p>
+                <div class="btn-group">
+                    <a href="./Lab Manual Chapter 1.pdf" target="_blank" class="btn btn-outline">View Sample Lab Manual</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Canvas LMS Proficiency</h3>
+                <p>Extensive experience structuring, managing, and maintaining complex course pages on Canvas. I am highly proficient in organizing modules, managing assignment prerequisites, maintaining clear student communication via announcements, and utilizing automated grading tools.</p>
+                
+                <div class="canvas-gallery">
+                    <img src="./Screenshot 2026-03-31 214214.png" alt="Canvas Announcements and Welcome Module Management">
+                    <img src="./Screenshot 2026-03-31 214239.png" alt="Canvas Lab Module Structure with Prerequisites">
+                </div>
             </div>
         </section>
 
@@ -421,7 +675,7 @@
                     <li>📍 <strong>Location:</strong> Corpus Christi, TX</li>
                 </ul>
                 <div class="btn-group" style="margin-top: 1.5rem;">
-                    <a href="./Siddhartha_Resume.docx" download class="btn">Download Full Resume (DOCX)</a>
+                    <a href="./Siddhartha_Resume.pdf" target="_blank" class="btn">Download Full Resume (PDF)</a>
                     <a href="https://linkedin.com/in/siddhartha-chilukuri-3217242a8" target="_blank" class="btn btn-outline">Connect on LinkedIn</a>
                 </div>
             </div>
