@@ -52,6 +52,7 @@
         .profile-img-container {
             width: 160px;
             height: 160px;
+            flex-shrink: 0; /* This prevents the oval squishing! */
             margin: 0 auto 1.5rem auto;
             border-radius: 50%;
             overflow: hidden;
@@ -68,6 +69,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: top center; /* This forces the crop to keep the top of your head */
         }
 
         .sidebar h1 {
@@ -283,21 +285,40 @@
             box-shadow: var(--shadow-sm);
         }
 
-        /* Canvas Gallery */
+        /* Canvas Gallery Slider */
         .canvas-gallery {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-bottom: 1rem; /* Space for the scrollbar */
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) var(--border-color);
         }
         
+        /* Custom scrollbar styling for Chrome/Safari */
+        .canvas-gallery::-webkit-scrollbar {
+            height: 8px;
+        }
+        .canvas-gallery::-webkit-scrollbar-track {
+            background: var(--bg-color);
+            border-radius: 4px;
+        }
+        .canvas-gallery::-webkit-scrollbar-thumb {
+            background-color: var(--accent-color);
+            border-radius: 4px;
+        }
+
         .canvas-gallery img {
+            flex: 0 0 100%; /* Forces each image to take up 100% of the viewable area */
+            scroll-snap-align: start; /* Snaps the image perfectly into place */
             width: 100%;
+            height: auto;
             border-radius: 8px;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-sm);
         }
-
         /* Buttons */
         .btn-group {
             display: flex;
@@ -631,6 +652,8 @@
                 <h3>Canvas LMS Proficiency</h3>
                 <p>Extensive experience structuring, managing, and maintaining complex course pages on Canvas. I am highly proficient in organizing modules, managing assignment prerequisites, maintaining clear student communication via announcements, and utilizing automated grading tools.</p>
                 
+                <p style="font-size: 0.85rem; color: var(--accent-color); margin-bottom: 0;"><em>&#8596; Scroll horizontally to view gallery</em></p>
+                
                 <div class="canvas-gallery">
                     <img src="./Screenshot 2026-03-31 214214.png" alt="Canvas Announcements and Welcome Module Management">
                     <img src="./Screenshot 2026-03-31 214239.png" alt="Canvas Lab Module Structure with Prerequisites">
@@ -669,7 +692,7 @@
         <section id="resume">
             <h2>Resume & Contact</h2>
             <div class="card">
-                <p>I am actively seeking secondary mathematics roles in Texas school districts, particularly those looking to expand their quantitative and data science offerings.</p>
+                <p>I am actively seeking secondary mathematics roles in Texas school districts.</p>
                 <ul style="list-style-type: none; margin-left: 0; margin-top: 1.5rem;">
                     <li>📧 <strong>Email:</strong> siddhartha.chilukuri.193@gmail.com</li>
                     <li>📞 <strong>Phone:</strong> +1 (361) 288-5043</li>
